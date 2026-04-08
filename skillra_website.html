@@ -569,10 +569,7 @@
           <div class="form-group"><label>Phone Number *</label><input type="tel" id="books-phone" placeholder="+91 XXXXX XXXXX" required></div>
         </div>
         <div class="form-group"><label>Email Address *</label><input type="email" id="books-email" placeholder="you@email.com" required></div>
-        <div class="form-row">
-          <div class="form-group"><label>Books / Subject *</label><input type="text" id="books-subject" placeholder="Which books are you interested in?"></div>
-          <div class="form-group"><label>Quantity</label><input type="number" id="books-qty" placeholder="1" min="1" value="1"></div>
-        </div>
+        <div class="form-group"><label>Quantity</label><input type="number" id="books-qty" placeholder="1" min="1" value="1"></div>
         <div class="form-group"><label>Additional Notes</label><textarea id="books-notes" placeholder="Any specific requirements or queries..."></textarea></div>
         <div class="form-error" id="books-error"></div>
         <button class="form-submit" onclick="submitForm('books')">📚 Pay & Submit Books Enquiry</button>
@@ -760,7 +757,7 @@ const PAYMENT_CONFIG = {
     // payment_link: "https://rzp.io/l/skillra-books"
   },
   course: {
-    amount: 999900,          // Amount in PAISE (₹9,999 = 999900 paise)
+    amount: 499900,          // Amount in PAISE (₹9,999 = 999900 paise)
     currency: "INR",
     name: "Skillra Technologies",
     description: "Course Registration — Skillra",
