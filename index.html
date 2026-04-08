@@ -5,8 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Skillra — Career Counselling & Courses</title>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<!-- Razorpay Checkout Script -->
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <style>
   :root {
     --brand-primary: #3B2FC9;
@@ -35,7 +33,7 @@
   html { scroll-behavior: smooth; }
   body { font-family: 'DM Sans', sans-serif; background: var(--surface); color: var(--text-dark); overflow-x: hidden; }
 
-  /* ─── NAV ─── */
+  /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
@@ -45,7 +43,6 @@
     box-shadow: var(--shadow-sm);
   }
   .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .nav-logo img { height: 42px; width: 42px; object-fit: contain; }
   .nav-logo-text { font-family: 'Sora', sans-serif; font-size: 22px; font-weight: 800; color: var(--brand-primary); letter-spacing: -0.5px; }
   .nav-links { display: flex; gap: 6px; }
   .nav-links a {
@@ -63,7 +60,7 @@
   .mobile-menu a { display: block; padding: 12px 0; font-weight: 500; color: var(--text-mid); text-decoration: none; border-bottom: 1px solid #f0eeff; }
   .mobile-menu.open { display: block; }
 
-  /* ─── HERO ─── */
+  /* HERO */
   .hero {
     min-height: 100vh; padding-top: 72px;
     background: var(--grad-dark);
@@ -78,8 +75,7 @@
   .hero-dots {
     position: absolute; inset: 0; overflow: hidden;
     background-image: radial-gradient(circle, rgba(162,155,254,0.3) 1px, transparent 1px);
-    background-size: 40px 40px;
-    opacity: 0.4;
+    background-size: 40px 40px; opacity: 0.4;
   }
   .hero-content { position: relative; z-index: 2; text-align: center; padding: 4rem 5%; max-width: 900px; }
   .hero-badge {
@@ -92,10 +88,9 @@
   @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
   .hero h1 {
     font-family: 'Sora', sans-serif; font-size: clamp(2.6rem, 6vw, 4.8rem);
-    font-weight: 800; color: white; line-height: 1.08; letter-spacing: -2px;
-    margin-bottom: 1.5rem;
+    font-weight: 800; color: white; line-height: 1.08; letter-spacing: -2px; margin-bottom: 1.5rem;
   }
-  .hero h1 span { 
+  .hero h1 span {
     background: linear-gradient(90deg, #A29BFE, #F6C90E);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   }
@@ -105,8 +100,7 @@
     padding: 15px 34px; border-radius: 50px; font-size: 16px; font-weight: 700;
     background: linear-gradient(135deg, #F6C90E, #F9A826); color: #1A1254;
     border: none; cursor: pointer; text-decoration: none; display: inline-block;
-    box-shadow: 0 8px 24px rgba(246,201,14,0.35); transition: all 0.25s;
-    font-family: 'Sora', sans-serif;
+    box-shadow: 0 8px 24px rgba(246,201,14,0.35); transition: all 0.25s; font-family: 'Sora', sans-serif;
   }
   .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(246,201,14,0.45); }
   .btn-secondary {
@@ -117,11 +111,10 @@
   }
   .btn-secondary:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.5); }
 
-  /* ─── EVENT BANNER ─── */
+  /* EVENT BANNER */
   .event-banner {
     background: linear-gradient(135deg, #1A1254, #3B2FC9);
-    padding: 2rem 5%; text-align: center;
-    position: relative; overflow: hidden;
+    padding: 2rem 5%; text-align: center; position: relative; overflow: hidden;
   }
   .event-banner::before {
     content: ''; position: absolute; inset: 0;
@@ -132,14 +125,13 @@
   .event-banner h2 { font-family: 'Sora', sans-serif; font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; color: white; margin-bottom: 0.75rem; }
   .event-meta { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem; }
   .event-meta-item { color: rgba(255,255,255,0.85); font-size: 15px; display: flex; align-items: center; gap: 6px; }
-  .event-meta-item svg { color: var(--brand-accent); }
   .event-logos { display: flex; gap: 1.5rem; justify-content: center; align-items: center; margin-top: 1.5rem; flex-wrap: wrap; }
   .event-logo-badge {
     background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
     border-radius: 8px; padding: 6px 14px; color: rgba(255,255,255,0.8); font-size: 12px; font-weight: 600;
   }
 
-  /* ─── SECTIONS ─── */
+  /* SECTIONS */
   section { padding: 5rem 5%; }
   .section-header { text-align: center; margin-bottom: 3.5rem; }
   .section-tag {
@@ -153,7 +145,7 @@
   }
   .section-header p { color: var(--text-light); font-size: 1.1rem; margin-top: 0.75rem; max-width: 560px; margin-left: auto; margin-right: auto; }
 
-  /* ─── CARDS GRID ─── */
+  /* CARDS GRID */
   .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
   .card {
     background: white; border-radius: var(--radius); padding: 2rem;
@@ -161,8 +153,7 @@
     transition: all 0.3s; position: relative; overflow: hidden;
   }
   .card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
-    background: var(--grad);
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--grad);
   }
   .card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
   .card-icon {
@@ -183,7 +174,7 @@
   }
   .card-btn:hover { opacity: 0.9; transform: translateY(-1px); }
 
-  /* ─── MEDICAL CODING ─── */
+  /* MEDICAL CODING */
   .medical-section {
     background: linear-gradient(135deg, #0F0A2E 0%, #1A1254 50%, #2D2575 100%);
     position: relative; overflow: hidden;
@@ -208,20 +199,21 @@
   .demo-box { background: rgba(0,206,201,0.1); border: 1.5px solid rgba(0,206,201,0.3); border-radius: 14px; padding: 1.25rem; margin-top: 1.5rem; }
   .demo-box p { color: var(--teal); font-size: 14px; font-weight: 600; }
 
-  /* ─── BOOTCAMP SECTION ─── */
+  /* BOOTCAMP SECTION */
   .bootcamp-section { background: var(--brand-light); }
-  .bootcamp-hero { background: var(--grad); border-radius: var(--radius-xl); padding: 3rem; margin-bottom: 3rem; color: white; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; max-width: 1200px; margin-left: auto; margin-right: auto; margin-bottom: 3rem; }
+  .bootcamp-hero {
+    background: var(--grad); border-radius: var(--radius-xl); padding: 3rem;
+    color: white; display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1.5rem; max-width: 1200px; margin: 0 auto 3rem;
+  }
   .bootcamp-hero h2 { font-family: 'Sora', sans-serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800; letter-spacing: -1px; margin-bottom: 0.5rem; }
   .bootcamp-hero p { color: rgba(255,255,255,0.8); font-size: 1rem; }
   .bootcamp-price { text-align: right; }
   .bootcamp-price .price-big { font-family: 'Sora', sans-serif; font-size: 3rem; font-weight: 800; color: var(--gold); line-height: 1; }
   .bootcamp-price .price-note { color: rgba(255,255,255,0.7); font-size: 13px; margin-top: 4px; }
   .bootcamp-price .price-off { background: rgba(246,201,14,0.2); border: 1px solid rgba(246,201,14,0.4); border-radius: 8px; padding: 4px 12px; color: var(--gold); font-size: 13px; font-weight: 700; display: inline-block; margin-top: 8px; }
-  .benefits-strip { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; max-width: 900px; margin: 0 auto 3rem; }
-  .benefit-item { display: flex; align-items: center; gap: 8px; color: var(--text-mid); font-size: 14px; font-weight: 600; }
-  .benefit-dot { width: 28px; height: 28px; border-radius: 50%; background: var(--brand-primary); display: flex; align-items: center; justify-content: center; font-size: 13px; }
 
-  /* ─── FORMS ─── */
+  /* FORMS */
   .forms-section { background: white; }
   .forms-tabs { display: flex; gap: 0; background: var(--brand-light); border-radius: 14px; padding: 6px; max-width: 700px; margin: 0 auto 3rem; }
   .form-tab { flex: 1; padding: 12px; text-align: center; border-radius: 10px; cursor: pointer; font-weight: 600; font-size: 14px; color: var(--text-light); transition: all 0.25s; border: none; background: transparent; font-family: 'DM Sans', sans-serif; }
@@ -246,8 +238,7 @@
   .form-submit {
     width: 100%; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 700;
     background: var(--grad); color: white; border: none; cursor: pointer;
-    font-family: 'Sora', sans-serif; margin-top: 0.5rem; transition: all 0.25s;
-    letter-spacing: 0.3px;
+    font-family: 'Sora', sans-serif; margin-top: 0.5rem; transition: all 0.25s; letter-spacing: 0.3px;
   }
   .form-submit:hover { opacity: 0.92; transform: translateY(-1px); box-shadow: var(--shadow-md); }
   .form-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
@@ -257,35 +248,36 @@
   .form-success p { color: var(--text-light); }
   .form-error { background: #FEF2F2; border: 1px solid #FCA5A5; border-radius: 8px; padding: 10px 14px; color: #DC2626; font-size: 13px; margin-top: 8px; display: none; }
 
-  /* ─── PAYMENT INFO BANNER ─── */
+  /* PAYMENT INFO BANNER */
   .payment-info {
     background: linear-gradient(135deg, rgba(59,47,201,0.06), rgba(162,155,254,0.08));
-    border: 1px solid rgba(59,47,201,0.12);
-    border-radius: 12px;
-    padding: 14px 18px;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 14px;
-    color: var(--text-mid);
+    border: 1px solid rgba(59,47,201,0.12); border-radius: 12px;
+    padding: 14px 18px; margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text-mid);
   }
   .payment-info .pay-icon {
     width: 36px; height: 36px; border-radius: 8px;
     background: var(--grad); display: flex; align-items: center; justify-content: center;
     font-size: 16px; flex-shrink: 0; color: white;
   }
+  /* SVG lock icon inside payment banner */
+  .pay-icon svg { width: 18px; height: 18px; fill: white; }
   .payment-info strong { color: var(--brand-primary); }
 
-  /* ─── FOOTER ─── */
-  footer {
-    background: var(--text-dark); color: rgba(255,255,255,0.7);
-    padding: 3rem 5% 2rem;
+  /* RAZORPAY LOADING OVERLAY */
+  #rzp-overlay {
+    display: none; position: fixed; inset: 0; z-index: 9999;
+    background: rgba(26,18,84,0.75); backdrop-filter: blur(4px);
+    align-items: center; justify-content: center; flex-direction: column; gap: 1rem;
   }
+  #rzp-overlay.show { display: flex; }
+  #rzp-overlay p { color: white; font-family: 'Sora', sans-serif; font-size: 16px; font-weight: 600; }
+
+  /* FOOTER */
+  footer { background: var(--text-dark); color: rgba(255,255,255,0.7); padding: 3rem 5% 2rem; }
   .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; }
   .footer-brand p { font-size: 14px; line-height: 1.8; margin-top: 1rem; max-width: 320px; }
   .footer-logo { display: flex; align-items: center; gap: 10px; }
-  .footer-logo img { height: 36px; width: 36px; object-fit: contain; filter: brightness(1.5); }
   .footer-logo span { font-family: 'Sora', sans-serif; font-size: 20px; font-weight: 800; color: white; }
   .footer-col h4 { font-family: 'Sora', sans-serif; font-size: 13px; font-weight: 700; color: white; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1rem; }
   .footer-col a { display: block; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; padding: 4px 0; transition: color 0.2s; }
@@ -293,11 +285,12 @@
   .footer-col p { font-size: 14px; line-height: 1.8; }
   .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.5rem; margin-top: 2rem; text-align: center; font-size: 13px; color: rgba(255,255,255,0.4); max-width: 1200px; margin-left: auto; margin-right: auto; }
 
-  /* ─── LOADING STATE ─── */
+  /* SPINNER */
   .spinner { width: 18px; height: 18px; border: 2px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%; animation: spin 0.7s linear infinite; display: inline-block; vertical-align: middle; margin-right: 8px; }
+  .spinner-lg { width: 48px; height: 48px; border: 3px solid rgba(255,255,255,0.2); border-top-color: #A29BFE; border-radius: 50%; animation: spin 0.8s linear infinite; }
   @keyframes spin { to { transform: rotate(360deg); } }
 
-  /* ─── RESPONSIVE ─── */
+  /* RESPONSIVE */
   @media (max-width: 768px) {
     .nav-links { display: none; }
     .hamburger { display: flex; }
@@ -312,10 +305,15 @@
 </head>
 <body>
 
+<!-- RAZORPAY LOADING OVERLAY -->
+<div id="rzp-overlay">
+  <div class="spinner-lg"></div>
+  <p>Opening secure payment...</p>
+</div>
+
 <!-- NAV -->
 <nav>
   <a class="nav-logo" href="#">
-    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/4QC8RXhpZgAASUkqAAgAAAAGABIBAwABAAAAAQAAABoBBQABAAAAVgAAABsBBQABAAAAXgAAACgBAwABAAAAAgAAABMCAwABAAAAAQAAAGmHBAABAAAAZgAAAAAAAABgAAAAAQAAAGAAAAABAAAABgAAkAcABAAAADAyMTABkQcABAAAAAECAwAAoAcABAAAADAxMDABoAMAAQAAAP//AAACoAMAAQAAAMgAAAADoAMAAQAAAMgAAAAAAAAA/+EOQWh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8APD94cGFja2V0IGJlZ2luPSfvu78nIGlkPSdXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQnPz4KPHg6eG1wbWV0YSB4bWxuczp4PSdhZG9iZTpuczptZXRhLyc+CjxyZGY6UkRGIHhtbG5zOnJkZj0naHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyc+CgogPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9JycKICB4bWxuczpBdHRyaWI9J2h0dHA6Ly9ucy5hdHRyaWJ1dGlvbi5jb20vYWRzLzEuMC8nPgogIDxBdHRyaWI6QWRzPgogICA8cmRmOlNlcT4KICAgIDxyZGY6bGkgcmRmOnBhcnNlVHlwZT0nUmVzb3VyY2UnPgogICAgIDxBdHRyaWI6Q3JlYXRlZD4yMDI1LTEyLTE3PC9BdHRyaWI6Q3JlYXRlZD4KICAgICA8QXR0cmliOkV4dElkPmNiYTE1NTAyLTRmNjQtNGU2Yy1iZmEzLWM4ZGE2YTYwZTI3MzwvQXR0cmliOkV4dElkPgogICAgIDxBdHRyaWI6RmJJZD41MjUyNjU5MTQxNzk1ODA8L0F0dHJpYjpGYklkPgogICAgIDxBdHRyaWI6VG91Y2hUeXBlPjI8L0F0dHJpYjpUb3VjaFR5cGU+CiAgICA8L3JkZjpsaT4KICAgPC9yZGY6U2VxPgogIDwvQXR0cmliOkFkcz4KIDwvcmRmOkRlc2NyaXB0aW9uPgoKIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PScnCiAgeG1sbnM6ZGM9J2h0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvJz4KICA8ZGM6dGl0bGU+CiAgIDxyZGY6QWx0PgogICAgPHJkZjpsaSB4bWw6bGFuZz0neC1kZWZhdWx0Jz5VbnRpdGxlZCBkZXNpZ24gLSAxPC9yZGY6bGk+CiAgIDwvcmRmOkFsdD4KICA8L2RjOnRpdGxlPgogPC9yZGY6RGVzY3JpcHRpb24+CgogPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9JycKICB4bWxuczpwZGY9J2h0dHA6Ly9ucy5hZG9iZS5jb20vcGRmLzEuMy8nPgogIDxwZGY6QXV0aG9yPnNraWxscmEgbWFya2V0aW5nPC9wZGY6QXV0aG9yPgogPC9yZGY6RGVzY3JpcHRpb24+CgogPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9JycKICB4bWxuczp4bXA9J2h0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8nPgogIDx4bXA6Q3JlYXRvclRvb2w+Q2FudmEgKFJlbmRlcmVyKSBkb2M9REFHN3ZjOWtBV0UgdXNlcj1VQUc3dmRUSmh3NCBicmFuZD1CQUc3dlVJREFTNCB0ZW1wbGF0ZT08L3htcDpDcmVhdG9yVG9vbD4KIDwvcmRmOkRlc2NyaXB0aW9uPgo8L3JkZjpSREY+CjwveDp4bXBtZXRhPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAo8P3hwYWNrZXQgZW5kPSd3Jz8+/9sAQwAGBAUGBQQGBgUGBwcGCAoQCgoJCQoUDg8MEBcUGBgXFBYWGh0lHxobIxwWFiAsICMmJykqKRkfLTAtKDAlKCko/9sAQwEHBwcKCAoTCgoTKBoWGigoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgo/8AAEQgAyADIAwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/aAAwDAQACEQMRAD8A+qaKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiijNABRSZoJoAWionlRULvIoUdyeKXeoAO4YPTmgCSiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKQ+tB4FY+veINM0K0a41W9it4wON55P0HeiMXN8sVdha5rk8VGZkDqrOqs3QE8mvJrX4kX3jHVZdK8GRwwFVy11eHHHqqdTXKeDdM1vVfiNdvr3iF0udHlDFGP319QOgFehHLpqMnVfK0r26mip9z34X1sbo2onjNxt3eXuG7HrivNvGHifxXZeP7HT9FtEutMwJZhGMuUzhgT29qWz8GWOneNZ/Fza8UtJMsib/AJeeCCxPT2qjo+hWnhbx5c6nceIlebUyy2loz58wNyASe2elOjTpQbfxabNPf/gFRUV5mrovxBtPF9xrWi2f2jTrmGJglxJxgjgn2wad4Ntp/D/ga/l8Qa1/aUDb5DNCSxVTncAe/er3hzSYb7Sb611ywsLXU7wyfaUtWBYo3AJPXNUdL+Hiabq+nPpWrTppFojI9kzb1lY9c9u9KUqXvRXurTz28wutijqFvoN98Jrcm/1NdIQrIJlLGYnd0Pfqa67UNIsdU0HTRPdXMNrbNHOkglKMduMbjVCzutfbxfdaW+jwQ+H44swTgcFsccfXtWtquhHxB4XfStccEzKBK9uSgyDnisakrNJvz77ktm9CysimNt6EDDA5zU2az9H0+PStNtrG3LmGBBGpc5OB71oVyvfQzCiiigAooooAKKKKACiiigAooooAKKKKACmuQqEsQAO5okICEk4HrXz/APGT4kyXM0uh6BOVt0O24uEPLn+6p9PWurBYKpjKns6fz8gN34kfF+DSnk0/w5tursZV5zzHGfQeprwHVtTvtZvXutUuZbmZjnMjZx7DsKdp1hcahqEFnZxmS5ncIi56k10XjD4f6z4UtILrUUieCQ7fMifO046GvucJhcHl7VK65333ZtGSRseEdH0aDwTda4mvSWGuKrRxjzAgQ+gHU5FR6n4Law8JWviKTXGma9dfP8tzkxsee+WI9KZe+ENEh8C2eq2+sxtqNwykRSEKME4IA68V2Wl+F9I8F2dve+LnTVIZkxAqAuImPZVzg59cV52IxChJ1Izbbk9GtXbog5zRuvCPhzWvDem+GdO1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" alt="Skillra Logo" onerror="this.style.display='none'">
     <span class="nav-logo-text">SKILLRA</span>
   </a>
   <div class="nav-links">
@@ -330,7 +328,6 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="#bootcamp" onclick="toggleMenu()">Summer Bootcamp</a>
   <a href="#medical" onclick="toggleMenu()">Medical Coding</a>
-  <a href="#courses" onclick="toggleMenu()">Courses</a>
   <a href="#register" onclick="toggleMenu()">Register Now</a>
 </div>
 
@@ -346,7 +343,7 @@
     <p>Join thousands of students who are building future-ready skills with Skillra — certified programs, live projects, and career support that actually works.</p>
     <div class="hero-buttons">
       <a href="#register" class="btn-primary">🚀 Register Now</a>
-      <a href="#courses" class="btn-secondary">Explore Programs</a>
+      <a href="#bootcamp" class="btn-secondary">Explore Programs</a>
     </div>
   </div>
 </section>
@@ -560,19 +557,48 @@
       <h3>📚 Books Purchase</h3>
       <p>Purchase study materials and reference books for your chosen program.</p>
       <div class="payment-info">
-        <div class="pay-icon">💳</div>
+        <div class="pay-icon">
+          <!-- Lock / Secure Payment SVG icon -->
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 8h-1V6A5 5 0 0 0 7 6v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2zm-6 9a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm3.1-9H8.9V6a3.1 3.1 0 0 1 6.2 0v2z"/>
+          </svg>
+        </div>
         <div>Secure payment via <strong>Razorpay</strong> — Pay after filling the form below.</div>
       </div>
       <div id="form-books">
         <div class="form-row">
-          <div class="form-group"><label>Full Name *</label><input type="text" id="books-name" placeholder="Your full name" required></div>
-          <div class="form-group"><label>Phone Number *</label><input type="tel" id="books-phone" placeholder="+91 XXXXX XXXXX" required></div>
+          <div class="form-group"><label>Full Name *</label><input type="text" id="books-name" placeholder="Your full name"></div>
+          <div class="form-group"><label>Phone Number *</label><input type="tel" id="books-phone" placeholder="+91 XXXXX XXXXX"></div>
         </div>
-        <div class="form-group"><label>Email Address *</label><input type="email" id="books-email" placeholder="you@email.com" required></div>
+        <div class="form-group"><label>Email Address *</label><input type="email" id="books-email" placeholder="you@email.com"></div>
+        <div class="form-group">
+          <label>Qualification</label>
+          <select id="books-qual">
+            <option value="">Select qualification...</option>
+            <option>9th</option>
+            <option>10th</option>
+            <option>11th</option>
+            <option>12th</option>
+            <option>Diploma</option>
+            <option>BSc</option>
+            <option>B.Com</option>
+            <option>BBA</option>
+            <option>BCA</option>
+            <option>B.Tech / BE</option>
+            <option>B.Pharm</option>
+            <option>Nursing</option>
+            <option>Allied Health Sciences</option>
+            <option>MBA</option>
+            <option>MCA</option>
+            <option>MSc</option>
+            <option>Other Graduate</option>
+            <option>Other Post Graduate</option>
+          </select>
+        </div>
         <div class="form-group"><label>Quantity</label><input type="number" id="books-qty" placeholder="1" min="1" value="1"></div>
         <div class="form-group"><label>Additional Notes</label><textarea id="books-notes" placeholder="Any specific requirements or queries..."></textarea></div>
         <div class="form-error" id="books-error"></div>
-        <button class="form-submit" onclick="submitForm('books')">📚 Pay & Submit Books Enquiry</button>
+        <button class="form-submit" id="btn-books" onclick="submitForm('books')">📚 Pay & Submit Books Enquiry</button>
       </div>
       <div class="form-success" id="success-books">
         <div class="success-icon">✅</div>
@@ -588,15 +614,19 @@
       <h3>🎓 Course Registration</h3>
       <p>Register for any of our skill development courses including Medical Coding.</p>
       <div class="payment-info">
-        <div class="pay-icon">💳</div>
+        <div class="pay-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 8h-1V6A5 5 0 0 0 7 6v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2zm-6 9a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm3.1-9H8.9V6a3.1 3.1 0 0 1 6.2 0v2z"/>
+          </svg>
+        </div>
         <div>Secure payment via <strong>Razorpay</strong> — Pay after filling the form below.</div>
       </div>
       <div id="form-course">
         <div class="form-row">
-          <div class="form-group"><label>Full Name *</label><input type="text" id="course-name" placeholder="Your full name" required></div>
-          <div class="form-group"><label>Phone Number *</label><input type="tel" id="course-phone" placeholder="+91 XXXXX XXXXX" required></div>
+          <div class="form-group"><label>Full Name *</label><input type="text" id="course-name" placeholder="Your full name"></div>
+          <div class="form-group"><label>Phone Number *</label><input type="tel" id="course-phone" placeholder="+91 XXXXX XXXXX"></div>
         </div>
-        <div class="form-group"><label>Email Address *</label><input type="email" id="course-email" placeholder="you@email.com" required></div>
+        <div class="form-group"><label>Email Address *</label><input type="email" id="course-email" placeholder="you@email.com"></div>
         <div class="form-row">
           <div class="form-group">
             <label>Select Course *</label>
@@ -614,21 +644,32 @@
           <div class="form-group">
             <label>Qualification</label>
             <select id="course-qual">
-              <option value="">Select...</option>
-              <option>10th Completed</option>
-              <option>12th Completed</option>
+              <option value="">Select qualification...</option>
+              <option>9th</option>
+              <option>10th</option>
+              <option>11th</option>
+              <option>12th</option>
+              <option>Diploma</option>
               <option>BSc</option>
+              <option>B.Com</option>
+              <option>BBA</option>
+              <option>BCA</option>
+              <option>B.Tech / BE</option>
               <option>B.Pharm</option>
               <option>Nursing</option>
-              <option>Allied Health</option>
+              <option>Allied Health Sciences</option>
+              <option>MBA</option>
+              <option>MCA</option>
+              <option>MSc</option>
               <option>Other Graduate</option>
+              <option>Other Post Graduate</option>
             </select>
           </div>
         </div>
         <div class="form-group"><label>City / Location</label><input type="text" id="course-city" placeholder="Your city"></div>
         <div class="form-group"><label>Message / Query</label><textarea id="course-notes" placeholder="Tell us about your goals or ask any questions..."></textarea></div>
         <div class="form-error" id="course-error"></div>
-        <button class="form-submit" onclick="submitForm('course')">🎓 Pay & Register for Course</button>
+        <button class="form-submit" id="btn-course" onclick="submitForm('course')">🎓 Pay & Register for Course</button>
       </div>
       <div class="form-success" id="success-course">
         <div class="success-icon">🎉</div>
@@ -644,15 +685,19 @@
       <h3>🚀 Summer Bootcamp Registration</h3>
       <p>Secure your seat in the Summer Bootcamp — opens April 10. First 10 seats get ₹299 OFF!</p>
       <div class="payment-info">
-        <div class="pay-icon">💳</div>
+        <div class="pay-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 8h-1V6A5 5 0 0 0 7 6v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2zm-6 9a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm3.1-9H8.9V6a3.1 3.1 0 0 1 6.2 0v2z"/>
+          </svg>
+        </div>
         <div>Secure payment via <strong>Razorpay</strong> — Pay <strong>₹4,999</strong> after filling the form below.</div>
       </div>
       <div id="form-bootcamp">
         <div class="form-row">
-          <div class="form-group"><label>Full Name *</label><input type="text" id="boot-name" placeholder="Your full name" required></div>
-          <div class="form-group"><label>Phone Number *</label><input type="tel" id="boot-phone" placeholder="+91 XXXXX XXXXX" required></div>
+          <div class="form-group"><label>Full Name *</label><input type="text" id="boot-name" placeholder="Your full name"></div>
+          <div class="form-group"><label>Phone Number *</label><input type="tel" id="boot-phone" placeholder="+91 XXXXX XXXXX"></div>
         </div>
-        <div class="form-group"><label>Email Address *</label><input type="email" id="boot-email" placeholder="you@email.com" required></div>
+        <div class="form-group"><label>Email Address *</label><input type="email" id="boot-email" placeholder="you@email.com"></div>
         <div class="form-row">
           <div class="form-group">
             <label>Choose Bootcamp Course *</label>
@@ -667,18 +712,34 @@
             </select>
           </div>
           <div class="form-group">
-            <label>Completed Class</label>
+            <label>Qualification</label>
             <select id="boot-class">
-              <option value="">Select...</option>
-              <option>10th Completed</option>
-              <option>12th Completed</option>
+              <option value="">Select qualification...</option>
+              <option>9th</option>
+              <option>10th</option>
+              <option>11th</option>
+              <option>12th</option>
+              <option>Diploma</option>
+              <option>BSc</option>
+              <option>B.Com</option>
+              <option>BBA</option>
+              <option>BCA</option>
+              <option>B.Tech / BE</option>
+              <option>B.Pharm</option>
+              <option>Nursing</option>
+              <option>Allied Health Sciences</option>
+              <option>MBA</option>
+              <option>MCA</option>
+              <option>MSc</option>
+              <option>Other Graduate</option>
+              <option>Other Post Graduate</option>
             </select>
           </div>
         </div>
         <div class="form-group"><label>School / College Name</label><input type="text" id="boot-school" placeholder="Your school or college name"></div>
         <div class="form-group"><label>City</label><input type="text" id="boot-city" placeholder="Your city"></div>
         <div class="form-error" id="boot-error"></div>
-        <button class="form-submit" onclick="submitForm('bootcamp')">🚀 Pay ₹4,999 & Register for Bootcamp</button>
+        <button class="form-submit" id="btn-bootcamp" onclick="submitForm('bootcamp')">🚀 Pay ₹4,999 & Register for Bootcamp</button>
       </div>
       <div class="form-success" id="success-bootcamp">
         <div class="success-icon">🎊</div>
@@ -694,7 +755,6 @@
   <div class="footer-inner">
     <div class="footer-brand">
       <div class="footer-logo">
-        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/4QC8RXhpZgAASUkqAAgAAAAGABIBAwABAAAAAQAAABoBBQABAAAAVgAAABsBBQABAAAAXgAAACgBAwABAAAAAgAAABMCAwABAAAAAQAAAGmHBAABAAAAZgAAAAAAAABgAAAAAQAAAGAAAAABAAAABgAAkAcABAAAADAyMTABkQcABAAAAAECAwAAoAcABAAAADAxMDABoAMAAQAAAP//AAACoAMAAQAAAMgAAAADoAMAAQAAAMgAAAAAAAAA/+EOQWh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8APD94cGFja2V0IGJlZ2luPSfvu78nIGlkPSdXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQnPz4KPHg6eG1wbWV0YSB4bWxuczp4PSdhZG9iZTpuczptZXRhLyc+CjxyZGY6UkRGIHhtbG5zOnJkZj0naHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyc+CgogPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9JycKICB4bWxuczpBdHRyaWI9J2h0dHA6Ly9ucy5hdHRyaWJ1dGlvbi5jb20vYWRzLzEuMC8nPgogIDxBdHRyaWI6QWRzPgogICA8cmRmOlNlcT4KICAgIDxyZGY6bGkgcmRmOnBhcnNlVHlwZT0nUmVzb3VyY2UnPgogICAgIDxBdHRyaWI6Q3JlYXRlZD4yMDI1LTEyLTE3PC9BdHRyaWI6Q3JlYXRlZD4KICAgICA8QXR0cmliOkV4dElkPmNiYTE1NTAyLTRmNjQtNGU2Yy1iZmEzLWM4ZGE2YTYwZTI3MzwvQXR0cmliOkV4dElkPgogICAgIDxBdHRyaWI6RmJJZD41MjUyNjU5MTQxNzk1ODA8L0F0dHJpYjpGYklkPgogICAgIDxBdHRyaWI6VG91Y2hUeXBlPjI8L0F0dHJpYjpUb3VjaFR5cGU+CiAgICA8L3JkZjpsaT4KICAgPC9yZGY6U2VxPgogIDwvQXR0cmliOkFkcz4KIDwvcmRmOkRlc2NyaXB0aW9uPgoKIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PScnCiAgeG1sbnM6ZGM9J2h0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvJz4KICA8ZGM6dGl0bGU+CiAgIDxyZGY6QWx0PgogICAgPHJkZjpsaSB4bWw6bGFuZz0neC1kZWZhdWx0Jz5VbnRpdGxlZCBkZXNpZ24gLSAxPC9yZGY6bGk+CiAgIDwvcmRmOkFsdD4KICA8L2RjOnRpdGxlPgogPC9yZGY6RGVzY3JpcHRpb24+CgogPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9JycKICB4bWxuczpwZGY9J2h0dHA6Ly9ucy5hZG9iZS5jb20vcGRmLzEuMy8nPgogIDxwZGY6QXV0aG9yPnNraWxscmEgbWFya2V0aW5nPC9wZGY6QXV0aG9yPgogPC9yZGY6RGVzY3JpcHRpb24+CgogPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9JycKICB4bWxuczp4bXA9J2h0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8nPgogIDx4bXA6Q3JlYXRvclRvb2w+Q2FudmEgKFJlbmRlcmVyKSBkb2M9REFHN3ZjOWtBV0UgdXNlcj1VQUc3dmRUSmh3NCBicmFuZD1CQUc3dlVJREFTNCB0ZW1wbGF0ZT08L3htcDpDcmVhdG9yVG9vbD4KIDwvcmRmOkRlc2NyaXB0aW9uPgo8L3JkZjpSREY+CjwveDp4bXBtZXRhPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAo8P3hwYWNrZXQgZW5kPSd3Jz8+/9sAQwAGBAUGBQQGBgUGBwcGCAoQCgoJCQoUDg8MEBcUGBgXFBYWGh0lHxobIxwWFiAsICMmJykqKRkfLTAtKDAlKCko/9sAQwEHBwcKCAoTCgoTKBoWGigoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgo/8AAEQgAyADIAwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/aAAwDAQACEQMRAD8A+qaKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiijNABRSZoJoAWionlRULvIoUdyeKXeoAO4YPTmgCSiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKQ+tB4FY+veINM0K0a41W9it4wON55P0HeiMXN8sVdha5rk8VGZkDqrOqs3QE8mvJrX4kX3jHVZdK8GRwwFVy11eHHHqqdTXKeDdM1vVfiNdvr3iF0udHlDFGP319QOgFehHLpqMnVfK0r26mip9z34X1sbo2onjNxt3eXuG7HrivNvGHifxXZeP7HT9FtEutMwJZhGMuUzhgT29qWz8GWOneNZ/Fza8UtJMsib/AJeeCCxPT2qjo+hWnhbx5c6nceIlebUyy2loz58wNyASe2elOjTpQbfxabNPf/gFRUV5mrovxBtPF9xrWi2f2jTrmGJglxJxgjgn2wad4Ntp/D/ga/l8Qa1/aUDb5DNCSxVTncAe/er3hzSYb7Sb611ywsLXU7wyfaUtWBYo3AJPXNUdL+Hiabq+nPpWrTppFojI9kzb1lY9c9u9KUqXvRXurTz28wutijqFvoN98Jrcm/1NdIQrIJlLGYnd0Pfqa67UNIsdU0HTRPdXMNrbNHOkglKMduMbjVCzutfbxfdaW+jwQ+H44swTgcFsccfXtWtquhHxB4XfStccEzKBK9uSgyDnisakrNJvz77ktm9CysimNt6EDDA5zU2az9H0+PStNtrG3LmGBBGpc5OB71oVyvfQzCiiigAooooAKKKKACiiigAooooAKKKKACmuQqEsQAO5okICEk4HrXz/APGT4kyXM0uh6BOVt0O24uEPLn+6p9PWurBYKpjKns6fz8gN34kfF+DSnk0/w5tursZV5zzHGfQeprwHVtTvtZvXutUuZbmZjnMjZx7DsKdp1hcahqEFnZxmS5ncIi56k10XjD4f6z4UtILrUUieCQ7fMifO046GvucJhcHl7VK65333ZtGSRseEdH0aDwTda4mvSWGuKrRxjzAgQ+gHU5FR6n4Law8JWviKTXGma9dfP8tzkxsee+WI9KZe+ENEh8C2eq2+sxtqNwykRSEKME4IA68V2Wl+F9I8F2dve+LnTVIZkxAqAuImPZVzg59cV52IxChJ1Izbbk9GtXbog5zRuvCPhzWvDem+GdO1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" alt="Skillra">
         <span>SKILLRA</span>
       </div>
       <p>Empowering students and professionals with future-ready skills. DPIIT recognized | Ministry of MSME | StartupTN supported.</p>
@@ -703,7 +763,6 @@
       <h4>Programs</h4>
       <a href="#bootcamp">Summer Bootcamp</a>
       <a href="#medical">Medical Coding</a>
-      <a href="#courses">AI & Tech Courses</a>
       <a href="#register">Register Now</a>
     </div>
     <div class="footer-col">
@@ -720,280 +779,227 @@
   </div>
 </footer>
 
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
 <script>
-// ═══════════════════════════════════════════════════════════════════════════
-// RAZORPAY CONFIGURATION
-// ═══════════════════════════════════════════════════════════════════════════
-// 
-// ⚠️  IMPORTANT: Replace the key and amounts below with your actual values.
-//
-// You need THREE separate Razorpay Payment Links or Key IDs depending
-// on your setup. There are two common approaches:
-//
-// APPROACH 1 — Single Razorpay Key, different amounts per form (used below):
-//   Just replace RAZORPAY_KEY_ID with your live/test key from the Razorpay Dashboard.
-//
-// APPROACH 2 — Three different Razorpay Payment Page links:
-//   If you created 3 payment pages in Razorpay Dashboard, you can simply
-//   redirect users to those URLs instead. See comments in submitForm().
-//
-// ═══════════════════════════════════════════════════════════════════════════
-
-const RAZORPAY_KEY_ID = "rzp_live_SaBydm17j3dmTn"; // ← Replace with your Razorpay Key ID
-
-// Google Sheets endpoint (optional — to also save form data)
-const SHEET_URL = "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec";
-
-// Payment configuration for each form type
-const PAYMENT_CONFIG = {
-  books: {
-    amount: 299900,           // Amount in PAISE (₹499 = 49900 paise)
-    currency: "INR",
-    name: "Skillra Technologies",
-    description: "Books Purchase — Skillra",
-    image: "",               // Optional: Add your logo URL
-    theme_color: "#3B2FC9",
-    // If using Razorpay Payment Page link instead, uncomment below:
-    // payment_link: "https://rzp.io/l/skillra-books"
-  },
-  course: {
-    amount: 499900,          // Amount in PAISE (₹9,999 = 999900 paise)
-    currency: "INR",
-    name: "Skillra Technologies",
-    description: "Course Registration — Skillra",
-    image: "",
-    theme_color: "#6C5CE7",
-    // payment_link: "https://rzp.io/l/skillra-course"
-  },
-  bootcamp: {
-    amount: 499900,          // Amount in PAISE (₹4,999 = 499900 paise)
-    currency: "INR",
-    name: "Skillra Technologies",
-    description: "Summer Bootcamp Registration — Skillra",
-    image: "",
-    theme_color: "#F6C90E",
-    // payment_link: "https://rzp.io/l/skillra-bootcamp"
-  }
+var RAZORPAY_KEY_ID = "rzp_live_SaBydm17j3dmTn";
+var SHEET_URL = "https://script.google.com/macros/s/AKfycbxZ3HqkhgfgSyMGjz0EuVQ58D0rALar66OcuJsVSSaPJ2lDeXYDGo4k0hSnyXf91zJG/exec";
+var PAYMENT_CONFIG = {
+  books:    { amount: 299900,  description: "Books Purchase — Skillra",               theme_color: "#3B2FC9" },
+  course:   { amount: 499900,  description: "Course Registration — Skillra",          theme_color: "#6C5CE7" },
+  bootcamp: { amount: 499900,  description: "Summer Bootcamp Registration — Skillra",  theme_color: "#F6C90E" }
 };
-
-// ═══════════════════════════════════════════════════════════════════════════
-// UI FUNCTIONS
-// ═══════════════════════════════════════════════════════════════════════════
 
 function toggleMenu() {
   document.getElementById('mobileMenu').classList.toggle('open');
 }
 
 function switchTab(tab) {
-  document.querySelectorAll('.form-tab').forEach((t, i) => {
-    const tabs = ['books', 'course', 'bootcamp'];
-    t.classList.toggle('active', tabs[i] === tab);
-  });
-  document.querySelectorAll('.form-panel').forEach(p => p.classList.remove('active'));
+  var tabs = ['books', 'course', 'bootcamp'];
+  var btns = document.querySelectorAll('.form-tab');
+  btns.forEach(function(b, i) { b.classList.toggle('active', tabs[i] === tab); });
+  document.querySelectorAll('.form-panel').forEach(function(p) { p.classList.remove('active'); });
   document.getElementById('panel-' + tab).classList.add('active');
 }
 
 function openForm(type, courseName) {
   switchTab(type);
   document.getElementById('register').scrollIntoView({ behavior: 'smooth' });
-  if (type === 'bootcamp' && courseName) {
-    setTimeout(() => {
-      const sel = document.getElementById('boot-course');
-      for (let o of sel.options) { if (o.value === courseName) { sel.value = courseName; break; } }
-    }, 400);
-  }
-  if (type === 'course' && courseName) {
-    setTimeout(() => {
-      const sel = document.getElementById('course-name-select');
-      for (let o of sel.options) { if (o.value === courseName) { sel.value = courseName; break; } }
+  if (courseName) {
+    setTimeout(function() {
+      var selId = type === 'bootcamp' ? 'boot-course' : 'course-name-select';
+      var sel = document.getElementById(selId);
+      if (sel) {
+        for (var i = 0; i < sel.options.length; i++) {
+          if (sel.options[i].value === courseName) { sel.value = courseName; break; }
+        }
+      }
     }, 400);
   }
 }
 
 function showError(id, msg) {
-  const el = document.getElementById(id);
+  var el = document.getElementById(id);
+  if (!el) return;
   el.textContent = msg;
   el.style.display = 'block';
-  setTimeout(() => { el.style.display = 'none'; }, 5000);
+  setTimeout(function() { el.style.display = 'none'; }, 6000);
 }
 
 function validate(fields) {
-  for (let [label, val] of fields) {
-    if (!val || !val.trim()) return `Please fill in: ${label}`;
+  for (var i = 0; i < fields.length; i++) {
+    if (!fields[i][1] || !fields[i][1].trim()) return 'Please fill in: ' + fields[i][0];
   }
   return null;
 }
 
-// ═══════════════════════════════════════════════════════════════════════════
-// RAZORPAY PAYMENT HANDLER
-// ═══════════════════════════════════════════════════════════════════════════
+function setBtn(type, loading) {
+  var btn = document.getElementById('btn-' + type);
+  if (!btn) return;
+  if (loading) {
+    btn._original = btn.innerHTML;
+    btn.innerHTML = '<span class="spinner"></span> Opening Payment...';
+    btn.disabled = true;
+  } else {
+    btn.innerHTML = btn._original || 'Submit';
+    btn.disabled = false;
+  }
+}
+
+function showOverlay(show) {
+  var el = document.getElementById('rzp-overlay');
+  if (show) el.classList.add('show');
+  else el.classList.remove('show');
+}
+
+function getISTDateTime() {
+  var now = new Date();
+  var ist = new Date(now.getTime() + (5.5 * 60 * 60 * 1000));
+  var dd = String(ist.getUTCDate()).padStart(2,'0');
+  var mm = String(ist.getUTCMonth()+1).padStart(2,'0');
+  var yyyy = ist.getUTCFullYear();
+  var date = dd + '/' + mm + '/' + yyyy;
+  var h = ist.getUTCHours();
+  var min = String(ist.getUTCMinutes()).padStart(2,'0');
+  var sec = String(ist.getUTCSeconds()).padStart(2,'0');
+  var ampm = h >= 12 ? 'PM' : 'AM';
+  var h12 = String(h % 12 || 12).padStart(2,'0');
+  return { date: date, time: h12 + ':' + min + ':' + sec + ' ' + ampm };
+}
+
+function saveToSheet(formData) {
+  var typeMap = { "Books Purchase": "books", "Course Registration": "course", "Summer Bootcamp": "bootcamp" };
+  var dt = getISTDateTime();
+  var payload = Object.assign({}, formData, {
+    form_type: typeMap[formData.type] || formData.type,
+    date: dt.date,
+    time: dt.time
+  });
+  fetch(SHEET_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+    mode: "no-cors"
+  }).catch(function(e) { console.warn("Sheet save failed:", e); });
+}
 
 function openRazorpay(type, formData) {
-  const config = PAYMENT_CONFIG[type];
-
-  // ─── APPROACH 2: If using Payment Page links, uncomment below ───
-  // if (config.payment_link) {
-  //   window.location.href = config.payment_link;
-  //   return;
-  // }
-
-  // ─── APPROACH 1: Razorpay Checkout (inline popup) ───
-  const options = {
-    key: RAZORPAY_KEY_ID,
-    amount: config.amount,
-    currency: config.currency,
-    name: config.name,
+  var errorId = type === 'bootcamp' ? 'boot-error' : type + '-error';
+  if (typeof Razorpay === 'undefined') {
+    showOverlay(false); setBtn(type, false);
+    showError(errorId, 'Payment gateway failed to load. Please check your internet connection and refresh the page.');
+    return;
+  }
+  var config = PAYMENT_CONFIG[type];
+  var options = {
+    key:         RAZORPAY_KEY_ID,
+    amount:      config.amount,
+    currency:    "INR",
+    name:        "Skillra Technologies",
     description: config.description,
-    image: config.image,
-    prefill: {
-      name: formData.name || "",
-      email: formData.email || "",
-      contact: formData.phone || ""
-    },
+    image:       "https://skillra.com/favicon.ico",
+    prefill: { name: formData.name || "", email: formData.email || "", contact: formData.phone || "" },
     notes: {
-      form_type: type,
-      course: formData.course || formData.books || "",
+      form_type:     type,
+      course:        formData.course || "",
       qualification: formData.qualification || "",
-      city: formData.city || "",
-      school: formData.school || "",
-      class: formData.class || ""
+      city:          formData.city   || "",
+      school:        formData.school || "",
+      class:         formData.class  || ""
     },
-    theme: {
-      color: config.theme_color
-    },
-    handler: function (response) {
-      // ✅ Payment successful!
-      // response.razorpay_payment_id contains the payment ID.
-      console.log("Payment successful:", response.razorpay_payment_id);
-
-      // Add payment ID to form data and save to Google Sheets
-      formData.payment_id = response.razorpay_payment_id;
+    theme: { color: config.theme_color },
+    handler: function(response) {
+      showOverlay(false);
+      formData.payment_id     = response.razorpay_payment_id;
       formData.payment_status = "SUCCESS";
       saveToSheet(formData);
-
-      // Show success UI
       document.getElementById('form-' + type).style.display = 'none';
       document.getElementById('success-' + type).style.display = 'block';
     },
     modal: {
-      ondismiss: function () {
-        // User closed the payment popup without paying
-        console.log("Payment popup closed by user.");
-        // Re-enable the submit button
-        const btn = document.querySelector(`#form-${type} .form-submit`);
-        if (btn) {
-          btn.disabled = false;
-          btn.innerHTML = btn.getAttribute('data-original-text');
-        }
+      ondismiss: function() {
+        showOverlay(false); setBtn(type, false);
+        showError(errorId, 'Payment was cancelled. Please try again.');
       }
     }
   };
-
-  const rzp = new Razorpay(options);
-
-  rzp.on('payment.failed', function (response) {
-    // ❌ Payment failed
-    console.error("Payment failed:", response.error);
-    const errorId = type === 'bootcamp' ? 'boot-error' : type + '-error';
-    showError(errorId,
-      `Payment failed: ${response.error.description || 'Something went wrong'}. Please try again.`
-    );
-    // Re-enable the submit button
-    const btn = document.querySelector(`#form-${type} .form-submit`);
-    if (btn) {
-      btn.disabled = false;
-      btn.innerHTML = btn.getAttribute('data-original-text');
-    }
+  var rzp;
+  try { rzp = new Razorpay(options); }
+  catch(e) {
+    showOverlay(false); setBtn(type, false);
+    showError(errorId, 'Could not initialize payment: ' + (e.message || 'Unknown error. Please refresh and try again.'));
+    return;
+  }
+  rzp.on('payment.failed', function(response) {
+    showOverlay(false); setBtn(type, false);
+    var desc = (response.error && response.error.description) ? response.error.description : 'Payment failed. Please try again.';
+    showError(errorId, 'Payment failed: ' + desc);
   });
-
+  showOverlay(false);
   rzp.open();
 }
 
-// ═══════════════════════════════════════════════════════════════════════════
-// SAVE TO GOOGLE SHEETS (optional)
-// ═══════════════════════════════════════════════════════════════════════════
-
-async function saveToSheet(data) {
-  try {
-    const formBody = new FormData();
-    for (let [k, v] of Object.entries(data)) formBody.append(k, v || '');
-    await fetch(SHEET_URL, { method: 'POST', body: formBody, mode: 'no-cors' });
-  } catch (e) {
-    console.log("Sheet save attempted (no-cors):", e);
-  }
-}
-
-// ═══════════════════════════════════════════════════════════════════════════
-// FORM SUBMISSION → VALIDATE → OPEN RAZORPAY
-// ═══════════════════════════════════════════════════════════════════════════
-
 function submitForm(type) {
-  const btn = document.querySelector(`#form-${type} .form-submit`);
+  var formData = {};
+  var errorId  = type === 'bootcamp' ? 'boot-error' : type + '-error';
+  var err;
 
-  let formData = {
-    type: '',
-    timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
-  };
-  let errorId = '';
-
-  // ─── BOOKS ───
   if (type === 'books') {
-    const name = document.getElementById('books-name').value;
-    const phone = document.getElementById('books-phone').value;
-    const email = document.getElementById('books-email').value;
-    const subject = document.getElementById('books-subject').value;
-    errorId = 'books-error';
-    const err = validate([['Full Name', name], ['Phone', phone], ['Email', email]]);
-    if (err) return showError(errorId, err);
-    Object.assign(formData, {
-      type: 'Books Purchase', name, phone, email,
-      books: subject,
-      quantity: document.getElementById('books-qty').value,
-      notes: document.getElementById('books-notes').value
-    });
-  }
+    var name  = document.getElementById('books-name').value.trim();
+    var phone = document.getElementById('books-phone').value.trim();
+    var email = document.getElementById('books-email').value.trim();
+    err = validate([['Full Name', name], ['Phone Number', phone], ['Email Address', email]]);
+    if (err) { showError(errorId, err); return; }
+    formData = {
+      type:          'Books Purchase',
+      name:          name,
+      phone:         phone,
+      email:         email,
+      qualification: document.getElementById('books-qual').value,
+      quantity:      document.getElementById('books-qty').value || '1',
+      notes:         document.getElementById('books-notes').value
+    };
 
-  // ─── COURSE ───
-  else if (type === 'course') {
-    const name = document.getElementById('course-name').value;
-    const phone = document.getElementById('course-phone').value;
-    const email = document.getElementById('course-email').value;
-    const course = document.getElementById('course-name-select').value;
-    errorId = 'course-error';
-    const err = validate([['Full Name', name], ['Phone', phone], ['Email', email], ['Course', course]]);
-    if (err) return showError(errorId, err);
-    Object.assign(formData, {
-      type: 'Course Registration', name, phone, email, course,
+  } else if (type === 'course') {
+    var name   = document.getElementById('course-name').value.trim();
+    var phone  = document.getElementById('course-phone').value.trim();
+    var email  = document.getElementById('course-email').value.trim();
+    var course = document.getElementById('course-name-select').value;
+    err = validate([['Full Name', name], ['Phone Number', phone], ['Email Address', email], ['Course', course]]);
+    if (err) { showError(errorId, err); return; }
+    formData = {
+      type:          'Course Registration',
+      name:          name,
+      phone:         phone,
+      email:         email,
+      course:        course,
       qualification: document.getElementById('course-qual').value,
-      city: document.getElementById('course-city').value,
-      notes: document.getElementById('course-notes').value
-    });
+      city:          document.getElementById('course-city').value,
+      notes:         document.getElementById('course-notes').value
+    };
+
+  } else if (type === 'bootcamp') {
+    var name   = document.getElementById('boot-name').value.trim();
+    var phone  = document.getElementById('boot-phone').value.trim();
+    var email  = document.getElementById('boot-email').value.trim();
+    var course = document.getElementById('boot-course').value;
+    err = validate([['Full Name', name], ['Phone Number', phone], ['Email Address', email], ['Bootcamp Course', course]]);
+    if (err) { showError(errorId, err); return; }
+    formData = {
+      type:          'Summer Bootcamp',
+      name:          name,
+      phone:         phone,
+      email:         email,
+      course:        course,
+      qualification: document.getElementById('boot-class').value,
+      school:        document.getElementById('boot-school').value,
+      city:          document.getElementById('boot-city').value
+    };
   }
 
-  // ─── BOOTCAMP ───
-  else if (type === 'bootcamp') {
-    const name = document.getElementById('boot-name').value;
-    const phone = document.getElementById('boot-phone').value;
-    const email = document.getElementById('boot-email').value;
-    const course = document.getElementById('boot-course').value;
-    errorId = 'boot-error';
-    const err = validate([['Full Name', name], ['Phone', phone], ['Email', email], ['Course', course]]);
-    if (err) return showError(errorId, err);
-    Object.assign(formData, {
-      type: 'Summer Bootcamp', name, phone, email, course,
-      class: document.getElementById('boot-class').value,
-      school: document.getElementById('boot-school').value,
-      city: document.getElementById('boot-city').value
-    });
-  }
-
-  // Show loading state on button
-  btn.setAttribute('data-original-text', btn.innerHTML);
-  btn.innerHTML = '<span class="spinner"></span> Opening Payment...';
-  btn.disabled = true;
-
-  // Open Razorpay checkout
-  openRazorpay(type, formData);
+  setBtn(type, true);
+  showOverlay(true);
+  setTimeout(function() { openRazorpay(type, formData); }, 300);
 }
 </script>
 </body>
