@@ -260,9 +260,51 @@
     background: var(--grad); display: flex; align-items: center; justify-content: center;
     font-size: 16px; flex-shrink: 0; color: white;
   }
-  /* SVG lock icon inside payment banner */
   .pay-icon svg { width: 18px; height: 18px; fill: white; }
   .payment-info strong { color: var(--brand-primary); }
+
+  /* BOOTCAMP COURSE CHECKBOXES */
+  .course-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 6px;
+  }
+  .course-option { position: relative; }
+  .course-option input[type="checkbox"] { position: absolute; opacity: 0; pointer-events: none; }
+  .course-option label {
+    display: flex; align-items: center; gap: 10px;
+    padding: 12px 14px; background: #FAFAFE;
+    border: 1.5px solid rgba(59,47,201,0.15); border-radius: 10px;
+    cursor: pointer; font-size: 14px; font-weight: 500;
+    color: var(--text-dark); text-transform: none; letter-spacing: 0;
+    transition: border-color 0.2s, background 0.2s, box-shadow 0.2s; user-select: none;
+  }
+  .course-option label:hover { border-color: rgba(108,92,231,0.35); background: rgba(108,92,231,0.04); }
+  .course-option input:checked + label {
+    border-color: var(--brand-secondary); background: rgba(108,92,231,0.08);
+    box-shadow: 0 0 0 3px rgba(108,92,231,0.1);
+  }
+  .check-box {
+    flex-shrink: 0; width: 20px; height: 20px;
+    border: 2px solid rgba(59,47,201,0.2); border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .check-box svg { width: 12px; height: 12px; fill: none; stroke: #fff; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; opacity: 0; transform: scale(0.5); transition: opacity 0.15s, transform 0.15s; }
+  .course-option input:checked + label .check-box { background: var(--brand-secondary); border-color: var(--brand-secondary); }
+  .course-option input:checked + label .check-box svg { opacity: 1; transform: scale(1); }
+
+  /* PRICING SUMMARY */
+  .pricing-summary {
+    display: flex; align-items: center; justify-content: space-between;
+    background: linear-gradient(135deg, rgba(59,47,201,0.05), rgba(0,206,201,0.05));
+    border: 1px solid rgba(59,47,201,0.12); border-radius: 10px;
+    padding: 12px 16px; margin-bottom: 1.25rem; font-size: 14px; color: var(--text-mid);
+    min-height: 46px; transition: opacity 0.3s;
+  }
+  .pricing-summary.hidden { opacity: 0; pointer-events: none; height: 0; min-height: 0; padding: 0 16px; margin: 0; overflow: hidden; }
+  .pricing-summary .total {
+    font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1.15rem;
+    color: var(--brand-primary); white-space: nowrap;
+  }
 
   /* RAZORPAY LOADING OVERLAY */
   #rzp-overlay {
@@ -296,6 +338,7 @@
     .hamburger { display: flex; }
     .medical-inner { grid-template-columns: 1fr; gap: 2rem; }
     .form-row { grid-template-columns: 1fr; }
+    .course-grid { grid-template-columns: 1fr; }
     .medical-highlights { grid-template-columns: 1fr 1fr; }
     .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
     .bootcamp-hero { flex-direction: column; text-align: center; }
@@ -508,7 +551,7 @@
       <div class="demo-box">
         <p>🎯 Try a Skill in 2 Minutes — Free Demo Inside!</p>
       </div>
-      <button class="btn-primary" style="margin-top:1.5rem;" onclick="openForm('course','Medical Coding with Internship')">
+      <button class="btn-primary" style="margin-top:1.5rem;" onclick="openForm('course')">
         Apply for Medical Coding →
       </button>
     </div>
@@ -547,7 +590,7 @@
   </div>
   <div class="forms-tabs">
     <button class="form-tab active" onclick="switchTab('books')">📚 Books Purchase</button>
-    <button class="form-tab" onclick="switchTab('course')">🎓 Course Registration</button>
+    <button class="form-tab" onclick="switchTab('course')">🎓 AI Medical Coding</button>
     <button class="form-tab" onclick="switchTab('bootcamp')">🚀 Summer Bootcamp</button>
   </div>
 
@@ -558,7 +601,6 @@
       <p>Purchase study materials and reference books for your chosen program.</p>
       <div class="payment-info">
         <div class="pay-icon">
-          <!-- Lock / Secure Payment SVG icon -->
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M18 8h-1V6A5 5 0 0 0 7 6v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2zm-6 9a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm3.1-9H8.9V6a3.1 3.1 0 0 1 6.2 0v2z"/>
           </svg>
@@ -575,24 +617,12 @@
           <label>Qualification</label>
           <select id="books-qual">
             <option value="">Select qualification...</option>
-            <option>9th</option>
-            <option>10th</option>
-            <option>11th</option>
-            <option>12th</option>
-            <option>Diploma</option>
-            <option>BSc</option>
-            <option>B.Com</option>
-            <option>BBA</option>
-            <option>BCA</option>
-            <option>B.Tech / BE</option>
-            <option>B.Pharm</option>
-            <option>Nursing</option>
-            <option>Allied Health Sciences</option>
-            <option>MBA</option>
-            <option>MCA</option>
-            <option>MSc</option>
-            <option>Other Graduate</option>
-            <option>Other Post Graduate</option>
+            <option>5th</option><option>6th</option><option>7th</option><option>8th</option>
+            <option>9th</option><option>10th</option><option>11th</option><option>12th</option>
+            <option>Diploma</option><option>BSc</option><option>B.Com</option><option>BBA</option>
+            <option>BCA</option><option>B.Tech / BE</option><option>B.Pharm</option><option>Nursing</option>
+            <option>Allied Health Sciences</option><option>MBA</option><option>MCA</option><option>MSc</option>
+            <option>Other Graduate</option><option>Other Post Graduate</option>
           </select>
         </div>
         <div class="form-group"><label>Quantity</label><input type="number" id="books-qty" placeholder="1" min="1" value="1"></div>
@@ -608,11 +638,11 @@
     </div>
   </div>
 
-  <!-- COURSE FORM -->
+  <!-- COURSE FORM (AI Medical Coding Only) -->
   <div class="form-panel" id="panel-course">
     <div class="form-card">
-      <h3>🎓 Course Registration</h3>
-      <p>Register for any of our skill development courses including Medical Coding.</p>
+      <h3>🎓 AI Medical Coding — Course Registration</h3>
+      <p>Register for our AI Medical Coding course with Internship. Get industry-ready skills and hands-on experience.</p>
       <div class="payment-info">
         <div class="pay-icon">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -627,49 +657,22 @@
           <div class="form-group"><label>Phone Number *</label><input type="tel" id="course-phone" placeholder="+91 XXXXX XXXXX"></div>
         </div>
         <div class="form-group"><label>Email Address *</label><input type="email" id="course-email" placeholder="you@email.com"></div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Select Course *</label>
-            <select id="course-name-select">
-              <option value="">Choose a course...</option>
-              <option value="Medical Coding with Internship">Medical Coding with Internship</option>
-              <option value="AI Tools & Prompt Engineering">AI Tools & Prompt Engineering</option>
-              <option value="MS Office Mastery">MS Office Mastery</option>
-              <option value="Canva & Graphic Design">Canva & Graphic Design</option>
-              <option value="Digital Marketing & Social Media">Digital Marketing & Social Media</option>
-              <option value="Tally & Business Accounting">Tally & Business Accounting</option>
-              <option value="Flutter App Development">Flutter App Development</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Qualification</label>
-            <select id="course-qual">
-              <option value="">Select qualification...</option>
-              <option>9th</option>
-              <option>10th</option>
-              <option>11th</option>
-              <option>12th</option>
-              <option>Diploma</option>
-              <option>BSc</option>
-              <option>B.Com</option>
-              <option>BBA</option>
-              <option>BCA</option>
-              <option>B.Tech / BE</option>
-              <option>B.Pharm</option>
-              <option>Nursing</option>
-              <option>Allied Health Sciences</option>
-              <option>MBA</option>
-              <option>MCA</option>
-              <option>MSc</option>
-              <option>Other Graduate</option>
-              <option>Other Post Graduate</option>
-            </select>
-          </div>
+        <div class="form-group">
+          <label>Qualification</label>
+          <select id="course-qual">
+            <option value="">Select qualification...</option>
+            <option>5th</option><option>6th</option><option>7th</option><option>8th</option>
+            <option>9th</option><option>10th</option><option>11th</option><option>12th</option>
+            <option>Diploma</option><option>BSc</option><option>B.Com</option><option>BBA</option>
+            <option>BCA</option><option>B.Tech / BE</option><option>B.Pharm</option><option>Nursing</option>
+            <option>Allied Health Sciences</option><option>MBA</option><option>MCA</option><option>MSc</option>
+            <option>Other Graduate</option><option>Other Post Graduate</option>
+          </select>
         </div>
         <div class="form-group"><label>City / Location</label><input type="text" id="course-city" placeholder="Your city"></div>
         <div class="form-group"><label>Message / Query</label><textarea id="course-notes" placeholder="Tell us about your goals or ask any questions..."></textarea></div>
         <div class="form-error" id="course-error"></div>
-        <button class="form-submit" id="btn-course" onclick="submitForm('course')">🎓 Pay & Register for Course</button>
+        <button class="form-submit" id="btn-course" onclick="submitForm('course')">🎓 Pay & Register for AI Medical Coding</button>
       </div>
       <div class="form-success" id="success-course">
         <div class="success-icon">🎉</div>
@@ -679,7 +682,7 @@
     </div>
   </div>
 
-  <!-- BOOTCAMP FORM -->
+  <!-- BOOTCAMP FORM (Checkbox Multi-Course + Dynamic Pricing) -->
   <div class="form-panel" id="panel-bootcamp">
     <div class="form-card">
       <h3>🚀 Summer Bootcamp Registration</h3>
@@ -690,7 +693,7 @@
             <path d="M18 8h-1V6A5 5 0 0 0 7 6v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2zm-6 9a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm3.1-9H8.9V6a3.1 3.1 0 0 1 6.2 0v2z"/>
           </svg>
         </div>
-        <div>Secure payment via <strong>Razorpay</strong> — Pay <strong>₹4,999</strong> after filling the form below.</div>
+        <div>Secure payment via <strong>Razorpay</strong> — Starting at <strong id="banner-price">₹2,999</strong> · Select courses below</div>
       </div>
       <div id="form-bootcamp">
         <div class="form-row">
@@ -698,48 +701,62 @@
           <div class="form-group"><label>Phone Number *</label><input type="tel" id="boot-phone" placeholder="+91 XXXXX XXXXX"></div>
         </div>
         <div class="form-group"><label>Email Address *</label><input type="email" id="boot-email" placeholder="you@email.com"></div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Choose Bootcamp Course *</label>
-            <select id="boot-course">
-              <option value="">Select course...</option>
-              <option>AI Tools & Prompt Engineering</option>
-              <option>MS Office Mastery</option>
-              <option>Canva & Graphic Design</option>
-              <option>Digital Marketing & Social Media</option>
-              <option>Tally & Business Accounting</option>
-              <option>Flutter App Development</option>
-            </select>
+
+        <!-- Course Checkboxes -->
+        <div class="form-group" style="margin-bottom:8px;">
+          <label>Choose Bootcamp Courses * <span style="font-weight:400;text-transform:none;opacity:0.65;letter-spacing:0;">(1st course ₹2,999 · each additional +₹2,000)</span></label>
+          <div class="course-grid">
+            <div class="course-option">
+              <input type="checkbox" id="bc1" name="boot-course" value="AI Tools & Prompt Engineering" onchange="updateBootcampPrice()">
+              <label for="bc1"><span class="check-box"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>AI Tools & Prompt Engineering</label>
+            </div>
+            <div class="course-option">
+              <input type="checkbox" id="bc2" name="boot-course" value="MS Office Mastery" onchange="updateBootcampPrice()">
+              <label for="bc2"><span class="check-box"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>MS Office Mastery</label>
+            </div>
+            <div class="course-option">
+              <input type="checkbox" id="bc3" name="boot-course" value="Canva & Graphic Design" onchange="updateBootcampPrice()">
+              <label for="bc3"><span class="check-box"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>Canva & Graphic Design</label>
+            </div>
+            <div class="course-option">
+              <input type="checkbox" id="bc4" name="boot-course" value="Digital Marketing & Social Media" onchange="updateBootcampPrice()">
+              <label for="bc4"><span class="check-box"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>Digital Marketing & Social Media</label>
+            </div>
+            <div class="course-option">
+              <input type="checkbox" id="bc5" name="boot-course" value="Tally & Business Accounting" onchange="updateBootcampPrice()">
+              <label for="bc5"><span class="check-box"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>Tally & Business Accounting</label>
+            </div>
+            <div class="course-option">
+              <input type="checkbox" id="bc6" name="boot-course" value="Flutter App Development" onchange="updateBootcampPrice()">
+              <label for="bc6"><span class="check-box"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>Flutter App Development</label>
+            </div>
           </div>
+        </div>
+
+        <!-- Dynamic Pricing Summary -->
+        <div class="pricing-summary hidden" id="pricing-summary">
+          <div id="pricing-breakdown"></div>
+          <div class="total" id="pricing-total"></div>
+        </div>
+
+        <div class="form-row">
           <div class="form-group">
             <label>Qualification</label>
             <select id="boot-class">
               <option value="">Select qualification...</option>
-              <option>9th</option>
-              <option>10th</option>
-              <option>11th</option>
-              <option>12th</option>
-              <option>Diploma</option>
-              <option>BSc</option>
-              <option>B.Com</option>
-              <option>BBA</option>
-              <option>BCA</option>
-              <option>B.Tech / BE</option>
-              <option>B.Pharm</option>
-              <option>Nursing</option>
-              <option>Allied Health Sciences</option>
-              <option>MBA</option>
-              <option>MCA</option>
-              <option>MSc</option>
-              <option>Other Graduate</option>
-              <option>Other Post Graduate</option>
+              <option>5th</option><option>6th</option><option>7th</option><option>8th</option>
+              <option>9th</option><option>10th</option><option>11th</option><option>12th</option>
+              <option>Diploma</option><option>BSc</option><option>B.Com</option><option>BBA</option>
+              <option>BCA</option><option>B.Tech / BE</option><option>B.Pharm</option><option>Nursing</option>
+              <option>Allied Health Sciences</option><option>MBA</option><option>MCA</option><option>MSc</option>
+              <option>Other Graduate</option><option>Other Post Graduate</option>
             </select>
           </div>
+          <div class="form-group"><label>School / College Name</label><input type="text" id="boot-school" placeholder="Your school or college name"></div>
         </div>
-        <div class="form-group"><label>School / College Name</label><input type="text" id="boot-school" placeholder="Your school or college name"></div>
         <div class="form-group"><label>City</label><input type="text" id="boot-city" placeholder="Your city"></div>
         <div class="form-error" id="boot-error"></div>
-        <button class="form-submit" id="btn-bootcamp" onclick="submitForm('bootcamp')">🚀 Pay ₹4,999 & Register for Bootcamp</button>
+        <button class="form-submit" id="btn-bootcamp" onclick="submitForm('bootcamp')" disabled>Select at least one course to continue</button>
       </div>
       <div class="form-success" id="success-bootcamp">
         <div class="success-icon">🎊</div>
@@ -784,11 +801,64 @@
 <script>
 var RAZORPAY_KEY_ID = "rzp_live_SaBydm17j3dmTn";
 var SHEET_URL = "https://script.google.com/macros/s/AKfycbxZ3HqkhgfgSyMGjz0EuVQ58D0rALar66OcuJsVSSaPJ2lDeXYDGo4k0hSnyXf91zJG/exec";
+
+// Fixed prices for books and course; bootcamp is dynamic
 var PAYMENT_CONFIG = {
-  books:    { amount: 299900,  description: "Books Purchase — Skillra",               theme_color: "#3B2FC9" },
-  course:   { amount: 499900,  description: "Course Registration — Skillra",          theme_color: "#6C5CE7" },
-  bootcamp: { amount: 299900,  description: "Summer Bootcamp Registration — Skillra",  theme_color: "#F6C90E" }
+  books:  { amount: 299900, description: "Books Purchase — Skillra",                    theme_color: "#3B2FC9" },
+  course: { amount: 499900, description: "AI Medical Coding Registration — Skillra",     theme_color: "#6C5CE7" }
+  // bootcamp amount is computed dynamically
 };
+
+// Bootcamp pricing
+var BOOT_BASE = 2999;
+var BOOT_ADDON = 2000;
+
+function formatINR(n) { return '₹' + n.toLocaleString('en-IN'); }
+
+function getSelectedBootcampCourses() {
+  return Array.from(document.querySelectorAll('input[name="boot-course"]:checked'));
+}
+
+function calcBootcampTotal(count) {
+  if (count === 0) return 0;
+  return BOOT_BASE + (count - 1) * BOOT_ADDON;
+}
+
+function updateBootcampPrice() {
+  var checked = getSelectedBootcampCourses();
+  var count = checked.length;
+  var total = calcBootcampTotal(count);
+
+  var summaryEl = document.getElementById('pricing-summary');
+  var breakdownEl = document.getElementById('pricing-breakdown');
+  var totalEl = document.getElementById('pricing-total');
+  var bannerPrice = document.getElementById('banner-price');
+  var btn = document.getElementById('btn-bootcamp');
+
+  if (count === 0) {
+    summaryEl.classList.add('hidden');
+    bannerPrice.textContent = '₹2,999';
+    btn.disabled = true;
+    btn.textContent = 'Select at least one course to continue';
+    return;
+  }
+
+  summaryEl.classList.remove('hidden');
+  bannerPrice.textContent = formatINR(total);
+
+  var parts = [];
+  if (count === 1) {
+    parts.push('1 course × ₹2,999');
+  } else {
+    parts.push('1st course ₹2,999');
+    parts.push('+ ' + (count - 1) + ' extra × ₹2,000');
+  }
+  breakdownEl.textContent = parts.join(' · ');
+  totalEl.textContent = formatINR(total);
+
+  btn.disabled = false;
+  btn.textContent = '🚀 Pay ' + formatINR(total) + ' & Register for Bootcamp';
+}
 
 function toggleMenu() {
   document.getElementById('mobileMenu').classList.toggle('open');
@@ -805,15 +875,14 @@ function switchTab(tab) {
 function openForm(type, courseName) {
   switchTab(type);
   document.getElementById('register').scrollIntoView({ behavior: 'smooth' });
-  if (courseName) {
+  // If bootcamp and a specific course name is passed, auto-check it
+  if (type === 'bootcamp' && courseName) {
     setTimeout(function() {
-      var selId = type === 'bootcamp' ? 'boot-course' : 'course-name-select';
-      var sel = document.getElementById(selId);
-      if (sel) {
-        for (var i = 0; i < sel.options.length; i++) {
-          if (sel.options[i].value === courseName) { sel.value = courseName; break; }
-        }
-      }
+      var checkboxes = document.querySelectorAll('input[name="boot-course"]');
+      checkboxes.forEach(function(cb) {
+        if (cb.value === courseName) { cb.checked = true; }
+      });
+      updateBootcampPrice();
     }, 400);
   }
 }
@@ -868,7 +937,7 @@ function getISTDateTime() {
 }
 
 function saveToSheet(formData) {
-  var typeMap = { "Books Purchase": "books", "Course Registration": "course", "Summer Bootcamp": "bootcamp" };
+  var typeMap = { "Books Purchase": "books", "AI Medical Coding": "course", "Summer Bootcamp": "bootcamp" };
   var dt = getISTDateTime();
   var payload = Object.assign({}, formData, {
     form_type: typeMap[formData.type] || formData.type,
@@ -883,20 +952,28 @@ function saveToSheet(formData) {
   }).catch(function(e) { console.warn("Sheet save failed:", e); });
 }
 
-function openRazorpay(type, formData) {
+function openRazorpay(type, formData, amountPaise) {
   var errorId = type === 'bootcamp' ? 'boot-error' : type + '-error';
   if (typeof Razorpay === 'undefined') {
     showOverlay(false); setBtn(type, false);
     showError(errorId, 'Payment gateway failed to load. Please check your internet connection and refresh the page.');
     return;
   }
-  var config = PAYMENT_CONFIG[type];
+
+  var description = type === 'bootcamp'
+    ? 'Summer Bootcamp (' + (formData.course || '') + ') — Skillra'
+    : type === 'course'
+      ? 'AI Medical Coding Registration — Skillra'
+      : 'Books Purchase — Skillra';
+
+  var themeColor = type === 'bootcamp' ? '#F6C90E' : type === 'course' ? '#6C5CE7' : '#3B2FC9';
+
   var options = {
     key:         RAZORPAY_KEY_ID,
-    amount:      config.amount,
+    amount:      amountPaise,
     currency:    "INR",
     name:        "Skillra Technologies",
-    description: config.description,
+    description: description,
     image:       "https://skillra.com/logo.png",
     prefill: { name: formData.name || "", email: formData.email || "", contact: formData.phone || "" },
     notes: {
@@ -907,7 +984,7 @@ function openRazorpay(type, formData) {
       school:        formData.school || "",
       class:         formData.class  || ""
     },
-    theme: { color: config.theme_color },
+    theme: { color: themeColor },
     handler: function(response) {
       showOverlay(false);
       formData.payment_id     = response.razorpay_payment_id;
@@ -943,6 +1020,7 @@ function submitForm(type) {
   var formData = {};
   var errorId  = type === 'bootcamp' ? 'boot-error' : type + '-error';
   var err;
+  var amountPaise;
 
   if (type === 'books') {
     var name  = document.getElementById('books-name').value.trim();
@@ -950,6 +1028,7 @@ function submitForm(type) {
     var email = document.getElementById('books-email').value.trim();
     err = validate([['Full Name', name], ['Phone Number', phone], ['Email Address', email]]);
     if (err) { showError(errorId, err); return; }
+    amountPaise = PAYMENT_CONFIG.books.amount;
     formData = {
       type:          'Books Purchase',
       name:          name,
@@ -961,18 +1040,18 @@ function submitForm(type) {
     };
 
   } else if (type === 'course') {
-    var name   = document.getElementById('course-name').value.trim();
-    var phone  = document.getElementById('course-phone').value.trim();
-    var email  = document.getElementById('course-email').value.trim();
-    var course = document.getElementById('course-name-select').value;
-    err = validate([['Full Name', name], ['Phone Number', phone], ['Email Address', email], ['Course', course]]);
+    var name  = document.getElementById('course-name').value.trim();
+    var phone = document.getElementById('course-phone').value.trim();
+    var email = document.getElementById('course-email').value.trim();
+    err = validate([['Full Name', name], ['Phone Number', phone], ['Email Address', email]]);
     if (err) { showError(errorId, err); return; }
+    amountPaise = PAYMENT_CONFIG.course.amount;
     formData = {
-      type:          'Course Registration',
+      type:          'AI Medical Coding',
       name:          name,
       phone:         phone,
       email:         email,
-      course:        course,
+      course:        'AI Medical Coding with Internship',
       qualification: document.getElementById('course-qual').value,
       city:          document.getElementById('course-city').value,
       notes:         document.getElementById('course-notes').value
@@ -982,15 +1061,22 @@ function submitForm(type) {
     var name   = document.getElementById('boot-name').value.trim();
     var phone  = document.getElementById('boot-phone').value.trim();
     var email  = document.getElementById('boot-email').value.trim();
-    var course = document.getElementById('boot-course').value;
-    err = validate([['Full Name', name], ['Phone Number', phone], ['Email Address', email], ['Bootcamp Course', course]]);
+    var courses = getSelectedBootcampCourses().map(function(cb) { return cb.value; });
+    err = validate([['Full Name', name], ['Phone Number', phone], ['Email Address', email]]);
     if (err) { showError(errorId, err); return; }
+    if (courses.length === 0) { showError(errorId, 'Please select at least one bootcamp course.'); return; }
+
+    var totalRupees = calcBootcampTotal(courses.length);
+    amountPaise = totalRupees * 100;
+
     formData = {
       type:          'Summer Bootcamp',
       name:          name,
       phone:         phone,
       email:         email,
-      course:        course,
+      course:        courses.join(', '),
+      course_count:  courses.length,
+      amount:        totalRupees,
       qualification: document.getElementById('boot-class').value,
       school:        document.getElementById('boot-school').value,
       city:          document.getElementById('boot-city').value
@@ -999,8 +1085,11 @@ function submitForm(type) {
 
   setBtn(type, true);
   showOverlay(true);
-  setTimeout(function() { openRazorpay(type, formData); }, 300);
+  setTimeout(function() { openRazorpay(type, formData, amountPaise); }, 300);
 }
+
+// Init bootcamp pricing
+updateBootcampPrice();
 </script>
 </body>
 </html>
